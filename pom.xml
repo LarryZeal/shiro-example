@@ -45,6 +45,7 @@
     <properties>
         <junit.version>4.9</junit.version>
         <commons-logging.version>1.2</commons-logging.version>
+        <slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>
         <shiro-core.version>1.2.5</shiro-core.version>
         <mysql-connector-java.version>5.1.39</mysql-connector-java.version>
         <druid.version>1.0.20</druid.version>
@@ -63,6 +64,11 @@
                 <version>${commons-logging.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j-log4j12.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
                 <version>${shiro-core.version}</version>
@@ -77,6 +83,7 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
