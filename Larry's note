@@ -1,0 +1,5 @@
+重试次数限制：
+    com.github.zhangkaitao.shiro.chapter5.hash.credentials.RetryLimitHashedCredentialsMatcher
+
+实例：
+    shiro-example-chapter6
