@@ -23,20 +23,24 @@ public class FormLoginFilter extends PathMatchingFilter {
 
     @Override
     protected boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+        //判断是否已登录，是则直接返回true
         if(SecurityUtils.getSubject().isAuthenticated()) {
             return true;//已经登录过
         }
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
+        //判断是否登陆请求的地址
         if(isLoginRequest(req)) {
+            //再判断是否post请求
             if("post".equalsIgnoreCase(req.getMethod())) {//form表单提交
                 boolean loginSuccess = login(req); //登录
+                //判断是否登陆成功
                 if(loginSuccess) {
                     return redirectToSuccessUrl(req, resp);
                 }
             }
             return true;//继续过滤器链
-        } else {//保存当前地址并重定向到登录界面
+        } else {//如果不是登陆地址，则保存当前地址并重定向到登录界面
             saveRequestAndRedirectToLogin(req, resp);
             return false;
         }
